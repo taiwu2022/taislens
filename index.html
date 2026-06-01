@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tai's Lens</title>
+    <meta name="description" content="Tai's Lens is a personal site for photography, academic notes, and small experiments.">
+    <meta property="og:title" content="Tai's Lens">
+    <meta
+      property="og:description"
+      content="A personal site for photography, academic notes, and small experiments."
+    >
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Tai's Lens home">Tai's Lens</a>
+      <nav class="nav-links">
+        <a href="#photos">Photos</a>
+        <a href="#academic">Academic</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Photography first, academic second</p>
+          <h1 id="hero-title">A personal site for seeing, collecting, and thinking aloud.</h1>
+          <p class="lede">
+            Tai's Lens starts as a quiet photo archive, with room for academic notes,
+            projects, and publications whenever they become worth showing.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#photos">View photos</a>
+            <a class="button secondary" href="#academic">Academic profile</a>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80"
+            alt="A mountain lake at sunset."
+          >
+        </figure>
+      </section>
+
+      <section class="intro" aria-label="Site direction">
+        <p>
+          The site is intentionally light: no locked-in website builder, no template
+          bloat, just a GitHub-tracked home that can grow at its own pace.
+        </p>
+      </section>
+
+      <section id="photos" class="section" aria-labelledby="photos-title">
+        <div class="section-heading">
+          <p class="eyebrow">Photos</p>
+          <h2 id="photos-title">Selected frames</h2>
+        </div>
+        <div class="photo-grid">
+          <figure class="photo-card span-wide">
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82"
+              alt="A house beside a lake at golden hour."
+            >
+            <figcaption>Light, distance, weather</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=82"
+              alt="A person walking on a road through a vast landscape."
+            >
+            <figcaption>Road notes</figcaption>
+          </figure>
+          <figure class="photo-card tall">
+            <img
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=82"
+              alt="A road stretching through hills."
+            >
+            <figcaption>Open space</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img
+              src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82"
+              alt="A calm lake surrounded by mountains."
+            >
+            <figcaption>Still water</figcaption>
+          </figure>
+          <figure class="photo-card span-wide">
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82"
+              alt="A landscape under warm evening light."
+            >
+            <figcaption>Evening archive</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="academic" class="section academic" aria-labelledby="academic-title">
+        <div class="section-heading">
+          <p class="eyebrow">Academic</p>
+          <h2 id="academic-title">Low-pressure academic corner</h2>
+        </div>
+        <div class="academic-layout">
+          <article class="profile-panel">
+            <p class="card-kicker">Tai Wu</p>
+            <h3>Interests before credentials.</h3>
+            <p>
+              A place for research interests, working notes, reading lists, and small
+              technical experiments. Publications can come later; the site does not need
+              to pretend otherwise.
+            </p>
+          </article>
+          <ol class="note-list">
+            <li>
+              <a href="#" aria-disabled="true">Research interests</a>
+              <span>Draft</span>
+            </li>
+            <li>
+              <a href="#" aria-disabled="true">Projects and experiments</a>
+              <span>Draft</span>
+            </li>
+            <li>
+              <a href="#" aria-disabled="true">CV and links</a>
+              <span>Later</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Make this yours.</h2>
+        </div>
+        <p>
+          Next we can replace the placeholder images with your own photos, add a
+          short bio, and decide how much academic material deserves to be visible.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Tai's Lens</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
