@@ -3,6 +3,8 @@
 Personal website for photography first, with a small academic corner for notes,
 projects, CV links, and publications later.
 
+Live site target: <https://taiwu2022.github.io/taislens/>.
+
 ## Local preview
 
 ```sh
