@@ -18,6 +18,13 @@ Then open <http://localhost:4173/>.
 - `index.html` - page content
 - `styles.css` - layout and visual design
 - `script.js` - tiny browser behavior
+- `assets/photos/` - place your own photo files here
+
+## Replacing photos
+
+Add images to `assets/photos/`, then edit the `photos` array in `script.js`.
+Use paths such as `./assets/photos/london-01.jpg`, and update the title, location
+or year in the `meta` field.
 
 ## Deployment idea
 

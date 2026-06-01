@@ -55,46 +55,15 @@
 
       <section id="photos" class="section" aria-labelledby="photos-title">
         <div class="section-heading">
-          <p class="eyebrow">Photos</p>
-          <h2 id="photos-title">Selected frames</h2>
+          <div>
+            <p class="eyebrow">Photos</p>
+            <h2 id="photos-title">Selected frames</h2>
+          </div>
+          <p class="section-note">
+            Placeholder images for now. The shape is ready for your own photographs.
+          </p>
         </div>
-        <div class="photo-grid">
-          <figure class="photo-card span-wide">
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82"
-              alt="A house beside a lake at golden hour."
-            >
-            <figcaption>Light, distance, weather</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img
-              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=82"
-              alt="A person walking on a road through a vast landscape."
-            >
-            <figcaption>Road notes</figcaption>
-          </figure>
-          <figure class="photo-card tall">
-            <img
-              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=82"
-              alt="A road stretching through hills."
-            >
-            <figcaption>Open space</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img
-              src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=82"
-              alt="A calm lake surrounded by mountains."
-            >
-            <figcaption>Still water</figcaption>
-          </figure>
-          <figure class="photo-card span-wide">
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82"
-              alt="A landscape under warm evening light."
-            >
-            <figcaption>Evening archive</figcaption>
-          </figure>
-        </div>
+        <div class="photo-grid" id="photo-grid"></div>
       </section>
 
       <section id="academic" class="section academic" aria-labelledby="academic-title">
@@ -105,24 +74,24 @@
         <div class="academic-layout">
           <article class="profile-panel">
             <p class="card-kicker">Tai Wu</p>
-            <h3>Interests before credentials.</h3>
+            <h3>PhD student in Economics at UCL.</h3>
             <p>
-              A place for research interests, working notes, reading lists, and small
-              technical experiments. Publications can come later; the site does not need
-              to pretend otherwise.
+              Working on early childhood development, family economics, and measurement
+              with visual data. This corner stays intentionally brief while the site grows
+              around photography.
             </p>
           </article>
           <ol class="note-list">
             <li>
-              <a href="#" aria-disabled="true">Research interests</a>
-              <span>Draft</span>
+              <a href="#" aria-disabled="true">UCL Department of Economics</a>
+              <span>PhD</span>
             </li>
             <li>
-              <a href="#" aria-disabled="true">Projects and experiments</a>
-              <span>Draft</span>
+              <a href="#" aria-disabled="true">Early childhood development and family economics</a>
+              <span>Interests</span>
             </li>
             <li>
-              <a href="#" aria-disabled="true">CV and links</a>
+              <a href="#" aria-disabled="true">CV, notes, and publications</a>
               <span>Later</span>
             </li>
           </ol>
@@ -145,6 +114,12 @@
       <p>© <span id="year"></span> Tai's Lens</p>
       <a href="#top">Back to top</a>
     </footer>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <button class="lightbox-close" type="button" aria-label="Close photo viewer">×</button>
+      <img alt="">
+      <p></p>
+    </dialog>
 
     <script src="./script.js"></script>
   </body>
