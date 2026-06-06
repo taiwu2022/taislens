@@ -40,8 +40,6 @@ img {
 }
 
 .site-header {
-  position: sticky;
-  top: 0;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -49,8 +47,7 @@ img {
   gap: 24px;
   padding: 18px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
-  background: rgba(247, 245, 239, 0.88);
-  backdrop-filter: blur(18px);
+  background: rgba(244, 247, 244, 0.92);
 }
 
 .brand {
@@ -73,11 +70,10 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+  grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1.28fr);
   align-items: center;
-  gap: clamp(28px, 5vw, 76px);
-  min-height: calc(100vh - 72px);
-  padding: clamp(40px, 6vw, 86px) clamp(20px, 5vw, 72px) 64px;
+  gap: clamp(26px, 5vw, 68px);
+  padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 72px) clamp(46px, 7vw, 82px);
 }
 
 .hero-copy {
@@ -103,16 +99,16 @@ p {
 h1 {
   max-width: 720px;
   margin: 0;
-  font-size: clamp(42px, 6vw, 76px);
+  font-size: clamp(52px, 9vw, 116px);
   line-height: 0.98;
   letter-spacing: 0;
 }
 
 .lede {
-  max-width: 620px;
+  max-width: 520px;
   margin: 26px 0 0;
   color: var(--muted);
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(18px, 2vw, 21px);
   line-height: 1.55;
 }
 
@@ -155,7 +151,7 @@ h1 {
 
 .hero-image {
   margin: 0;
-  min-height: 460px;
+  min-height: min(66vh, 620px);
   overflow: hidden;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -164,27 +160,13 @@ h1 {
 .hero-image img {
   width: 100%;
   height: 100%;
-  min-height: 460px;
+  min-height: min(66vh, 620px);
   object-fit: cover;
 }
 
-.intro {
-  padding: 34px clamp(20px, 5vw, 72px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--ink);
-  color: #fff;
-}
-
-.intro p {
-  max-width: 980px;
-  margin: 0;
-  font-size: clamp(22px, 3vw, 36px);
-  line-height: 1.25;
-}
-
 .section {
-  padding: clamp(58px, 8vw, 104px) clamp(20px, 5vw, 72px);
+  padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 72px);
+  border-top: 1px solid var(--line);
 }
 
 .section-heading {
@@ -207,14 +189,6 @@ h2 {
   font-size: clamp(30px, 4vw, 54px);
   line-height: 1.05;
   letter-spacing: 0;
-}
-
-.card-kicker {
-  margin: 0 0 58px;
-  color: var(--warm);
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
 }
 
 h3 {
@@ -283,80 +257,29 @@ h3 {
   grid-row: span 2;
 }
 
-.academic {
-  background: #e8efec;
-}
-
-.academic-layout {
+.about {
   display: grid;
-  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
-  gap: 16px;
+  grid-template-columns: 0.3fr minmax(280px, 0.86fr);
+  gap: clamp(22px, 5vw, 76px);
+  padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 72px);
+  border-top: 1px solid var(--line);
 }
 
-.profile-panel {
-  min-height: 100%;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
+.about .eyebrow {
+  margin-top: 8px;
 }
 
-.profile-panel p:last-child {
-  margin: 16px 0 0;
-  color: var(--muted);
-  line-height: 1.6;
+.about h2 {
+  max-width: 760px;
 }
 
-.note-list {
-  display: grid;
-  gap: 1px;
+.about p:last-child {
+  grid-column: 2;
+  max-width: 760px;
   margin: 0;
-  padding: 0;
-  list-style: none;
-  border: 1px solid var(--line);
-  background: var(--line);
-}
-
-.note-list li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 18px;
-  min-height: 74px;
-  padding: 18px 20px;
-  background: var(--surface);
-}
-
-.note-list a {
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 750;
-}
-
-.note-list span {
   color: var(--muted);
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.contact {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1.2fr);
-  gap: clamp(24px, 5vw, 72px);
-  padding: clamp(58px, 8vw, 104px) clamp(20px, 5vw, 72px);
-  background: var(--accent-dark);
-  color: #fff;
-}
-
-.contact .eyebrow {
-  color: #9be0d9;
-}
-
-.contact p:last-child {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(20px, 3vw, 34px);
-  line-height: 1.25;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.55;
 }
 
 .site-footer {
@@ -420,8 +343,7 @@ h3 {
 
 @media (max-width: 860px) {
   .hero,
-  .contact,
-  .academic-layout {
+  .about {
     grid-template-columns: 1fr;
   }
 
@@ -446,12 +368,15 @@ h3 {
   .section-note {
     margin-top: 14px;
   }
+
+  .about p:last-child {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 560px) {
   .site-header,
-  .site-footer,
-  .note-list li {
+  .site-footer {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -466,7 +391,7 @@ h3 {
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 58px;
   }
 
   .photo-grid {
