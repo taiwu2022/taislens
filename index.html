@@ -1,62 +1,92 @@
 <!doctype html>
+<!-- doctype 声明这是一个 HTML5 文档，必须放在最开头 -->
 <html lang="en">
+  <!-- head 里放的是页面的"元信息"，浏览器读取但用户看不到 -->
   <head>
+    <!-- 文字编码，utf-8 能正确显示中文等各种字符 -->
     <meta charset="utf-8">
+    <!-- 让页面在手机上也能正常缩放显示（响应式必备） -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 浏览器标签页上显示的标题 -->
     <title>Tai's Lens</title>
+    <!-- 页面描述，搜索引擎结果里会用到 -->
     <meta name="description" content="Tai's Lens is a personal site for photography, academic notes, and small experiments.">
+    <!-- og: 开头的标签是给社交媒体（微信、Facebook 等）分享时用的预览信息 -->
     <meta property="og:title" content="Tai's Lens">
     <meta
       property="og:description"
       content="A personal site for photography, academic notes, and small experiments."
     >
     <meta property="og:type" content="website">
+    <!-- 提前和图片服务器建立连接，让图片加载更快一点 -->
     <link rel="preconnect" href="https://images.unsplash.com">
+    <!-- 引入外部样式表 styles.css，控制页面的外观（颜色、布局等） -->
     <link rel="stylesheet" href="./styles.css">
   </head>
+  <!-- body 里是用户真正能看到的所有内容 -->
   <body>
+    <!-- 页面顶部的导航栏 -->
     <header class="site-header" aria-label="Primary navigation">
+      <!-- 网站名/Logo，点击回到顶部（href="#top" 跳到 id 为 top 的元素） -->
       <a class="brand" href="#top" aria-label="Tai's Lens home">Tai's Lens</a>
+      <!-- nav 是导航链接区域 -->
       <nav class="nav-links">
+        <!-- 点击跳到下面 id="photos" 的版块 -->
         <a href="#photos">Photos</a>
+        <!-- 点击跳到下面 id="about" 的版块 -->
         <a href="#about">About</a>
       </nav>
     </header>
 
+    <!-- main 是页面的主体内容，id="top" 对应上面 Logo 的跳转目标 -->
     <main id="top">
+      <!-- 首屏的大标题区域（hero 通常指页面最显眼的开头部分） -->
       <section class="hero" aria-labelledby="hero-title">
+        <!-- 左侧的文字部分 -->
         <div class="hero-copy">
+          <!-- eyebrow 是标题上方的小字（像"眉标"） -->
           <p class="eyebrow">Photography notebook</p>
+          <!-- h1 是页面最重要的主标题，一个页面通常只用一个 -->
           <h1 id="hero-title">Tai's Lens</h1>
+          <!-- lede 是开头的引言段落 -->
           <p class="lede">
             A quiet place for photographs, field notes, and a little academic life in
             the background.
           </p>
+          <!-- 主要的操作按钮区域 -->
           <div class="hero-actions" aria-label="Primary actions">
+            <!-- 看起来像按钮，其实是个链接，点击跳到 photos 版块 -->
             <a class="button primary" href="#photos">View photos</a>
           </div>
         </div>
+        <!-- figure 表示一张配图，右侧的大图 -->
         <figure class="hero-image">
+          <!-- img 显示图片，src 是图片地址，alt 是图片的文字说明（图片加载失败或读屏软件会用到） -->
           <img
-            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80"
-            alt="A mountain lake at sunset."
+            src="./assets/photos/web/tai-main-page.jpg"
+            alt="Portrait of Tai."
           >
         </figure>
       </section>
 
+      <!-- 照片展示版块，id="photos" 对应导航里的跳转 -->
       <section id="photos" class="section" aria-labelledby="photos-title">
+        <!-- 版块的标题区 -->
         <div class="section-heading">
           <div>
             <p class="eyebrow">Photos</p>
+            <!-- h2 是二级标题，比 h1 低一级 -->
             <h2 id="photos-title">Selected frames</h2>
           </div>
           <p class="section-note">
-            Placeholder images for now. Your own photos will replace these.
+            A first set of portraits, city nights, landscapes, and travel fragments.
           </p>
         </div>
+        <!-- 这个空的 div 是照片网格容器，照片由 script.js 用 JS 动态填进来 -->
         <div class="photo-grid" id="photo-grid"></div>
       </section>
 
+      <!-- 关于我版块 -->
       <section id="about" class="about" aria-labelledby="about-title">
         <p class="eyebrow">About</p>
         <h2 id="about-title">Photography first. Economics quietly nearby.</h2>
@@ -68,17 +98,25 @@
       </section>
     </main>
 
+    <!-- 页脚，放版权和外部链接 -->
     <footer class="site-footer">
+      <!-- 年份里的 span 是空的，由 script.js 自动填入当前年份 -->
       <p>© <span id="year"></span> Tai's Lens</p>
       <a href="https://github.com/taiwu2022/taislens">GitHub</a>
     </footer>
 
+    <!-- dialog 是一个弹窗元素，这里用作点击照片后放大查看的"灯箱"，平时隐藏 -->
     <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+      <!-- 关闭按钮，× 是叉号符号 -->
       <button class="lightbox-close" type="button" aria-label="Close photo viewer">×</button>
+      <!-- 放大显示的图片，内容由 JS 填入 -->
       <img alt="">
+      <!-- 图片说明文字，由 JS 填入 -->
       <p></p>
     </dialog>
 
+    <!-- 引入 JavaScript 脚本，负责动态生成照片、灯箱交互、填年份等功能 -->
+    <!-- 放在 body 最后是为了让页面内容先加载出来，再执行脚本 -->
     <script src="./script.js"></script>
   </body>
 </html>

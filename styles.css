@@ -1,94 +1,112 @@
+/* CSS 注释用 这种 斜杠星号 包起来，浏览器会忽略 */
+
+/* :root 代表整个文档的根，常用来定义"全局变量"（CSS 变量以 -- 开头） */
+/* 好处：颜色等只在这里定义一次，下面用 var(--名字) 引用，改一处即可全局生效 */
 :root {
-  color-scheme: light;
-  --bg: #f4f7f4;
-  --surface: #ffffff;
-  --ink: #171717;
-  --muted: #5f6762;
-  --line: rgba(23, 23, 23, 0.12);
-  --accent: #0b6f6a;
-  --accent-dark: #084c49;
-  --warm: #d98d3d;
-  --shadow: 0 24px 70px rgba(30, 26, 20, 0.12);
+  color-scheme: light; /* 告诉浏览器这是浅色主题 */
+  --bg: #f4f7f4;        /* 页面背景色 */
+  --surface: #ffffff;   /* 卡片/表面的颜色 */
+  --ink: #171717;       /* 主要文字颜色（接近黑） */
+  --muted: #5f6762;     /* 次要文字颜色（灰一点） */
+  --line: rgba(23, 23, 23, 0.12); /* 分割线颜色（半透明黑） */
+  --accent: #0b6f6a;    /* 主题强调色（青绿色） */
+  --accent-dark: #084c49; /* 强调色的深色版，用于 hover */
+  --warm: #d98d3d;      /* 暖色（橙），目前备用 */
+  --shadow: 0 24px 70px rgba(30, 26, 20, 0.12); /* 统一的阴影效果 */
+  /* 字体优先级列表：从左往右找，系统有哪个就用哪个 */
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 }
 
+/* * 是通配符，选中所有元素 */
 * {
+  /* border-box 让元素的宽度包含内边距和边框，布局时更好算尺寸 */
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* 点击锚点跳转时平滑滚动，而不是瞬间跳 */
 }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  min-width: 320px;
+  margin: 0;                /* 去掉浏览器默认的外边距 */
+  background: var(--bg);    /* 使用上面定义的背景色变量 */
+  color: var(--ink);        /* 使用主文字色 */
+  min-width: 320px;         /* 页面最小宽度，防止太窄时布局错乱 */
 }
 
+/* a 是链接 */
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit;           /* 颜色继承父元素，而不是默认的蓝色 */
+  text-decoration: none;    /* 去掉链接默认的下划线 */
 }
 
+/* img 是图片 */
 img {
-  display: block;
-  max-width: 100%;
+  display: block;           /* 块级显示，去掉图片底部默认的小空隙 */
+  max-width: 100%;          /* 图片最大不超过容器宽度，避免溢出 */
 }
 
+/* ===== 顶部导航栏 ===== */
 .site-header {
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  z-index: 10;                  /* 层级，数字越大越在上层 */
+  display: flex;                /* 弹性布局，让子元素横向排列 */
+  align-items: center;          /* 垂直方向居中对齐 */
+  justify-content: space-between; /* 两端对齐：Logo 在左，导航在右 */
+  gap: 24px;                    /* 子元素之间的间距 */
+  /* clamp(最小, 理想, 最大)：内边距随屏幕大小在 20px~72px 间自动变化 */
   padding: 18px clamp(20px, 5vw, 72px);
-  border-bottom: 1px solid var(--line);
-  background: rgba(244, 247, 244, 0.92);
+  border-bottom: 1px solid var(--line); /* 底部分割线 */
+  background: rgba(244, 247, 244, 0.92); /* 半透明背景 */
 }
 
+/* 网站名/Logo */
 .brand {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 800; /* 字重，800 很粗 */
 }
 
+/* 导航链接容器 */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 3vw, 34px);
+  gap: clamp(14px, 3vw, 34px); /* 链接间距随屏幕变化 */
   color: var(--muted);
   font-size: 14px;
 }
 
+/* :hover 表示鼠标悬停时的样式。导航和页脚链接悬停时变成强调色 */
 .nav-links a:hover,
 .site-footer a:hover {
   color: var(--accent);
 }
 
+/* ===== 首屏 hero 区域 ===== */
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(320px, 1.28fr);
+  display: grid; /* 网格布局，适合二维排版 */
+  /* 两列：左侧文字更宽，右侧留给竖幅 portrait frame */
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
   align-items: center;
   gap: clamp(26px, 5vw, 68px);
   padding: clamp(34px, 6vw, 72px) clamp(20px, 5vw, 72px) clamp(46px, 7vw, 82px);
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 760px; /* 文字区最大宽度，太宽不好阅读 */
 }
 
+/* 标题上方的小字（眉标） */
 .eyebrow {
   margin: 0 0 14px;
   color: var(--accent);
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: uppercase; /* 全部转成大写字母 */
 }
 
+/* 给标题和段落统一设置：长单词允许在任意位置换行，防止溢出 */
 h1,
 h2,
 h3,
@@ -99,11 +117,13 @@ p {
 h1 {
   max-width: 720px;
   margin: 0;
-  font-size: clamp(52px, 9vw, 116px);
-  line-height: 0.98;
+  /* 字号随屏幕在 52px~96px 间变化，做出大标题效果 */
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.98; /* 行高，小于1让多行标题贴得更紧 */
   letter-spacing: 0;
 }
 
+/* 引言段落 */
 .lede {
   max-width: 520px;
   margin: 26px 0 0;
@@ -112,24 +132,27 @@ h1 {
   line-height: 1.55;
 }
 
+/* 按钮区域 */
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 空间不够时自动换行 */
   gap: 12px;
   margin-top: 34px;
 }
 
+/* 按钮基础样式 */
 .button {
-  display: inline-flex;
+  display: inline-flex;     /* 行内弹性布局，方便让文字居中 */
   min-height: 46px;
-  align-items: center;
-  justify-content: center;
+  align-items: center;      /* 文字垂直居中 */
+  justify-content: center;  /* 文字水平居中 */
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 8px;       /* 圆角 */
   padding: 12px 18px;
   font-weight: 800;
 }
 
+/* 主按钮：填充强调色 */
 .button.primary {
   background: var(--accent);
   border-color: var(--accent);
@@ -137,9 +160,10 @@ h1 {
 }
 
 .button.primary:hover {
-  background: var(--accent-dark);
+  background: var(--accent-dark); /* 悬停时变深 */
 }
 
+/* 次按钮：浅色背景 */
 .button.secondary {
   background: rgba(255, 255, 255, 0.72);
 }
@@ -149,10 +173,16 @@ h1 {
   color: var(--accent);
 }
 
+/* 首屏右侧大图容器 */
 .hero-image {
+  justify-self: end;
+  width: min(100%, 520px);
+  aspect-ratio: 2 / 3;
   margin: 0;
-  min-height: min(66vh, 620px);
-  overflow: hidden;
+  /* 竖幅首图，接近相机人像比例 */
+  min-height: 0;
+  max-height: min(74vh, 680px);
+  overflow: hidden;      /* 超出部分裁掉（配合下面图片放大效果） */
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
@@ -160,19 +190,22 @@ h1 {
 .hero-image img {
   width: 100%;
   height: 100%;
-  min-height: min(66vh, 620px);
-  object-fit: cover;
+  min-height: 0;
+  object-fit: cover; /* 图片裁剪填满容器，不变形 */
+  object-position: center center;
 }
 
+/* ===== 通用版块 ===== */
 .section {
   padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 72px);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line); /* 顶部分割线 */
 }
 
+/* 版块标题区 */
 .section-heading {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
+  align-items: end;               /* 底部对齐 */
+  justify-content: space-between;  /* 标题在左，说明在右 */
   gap: 24px;
   margin-bottom: 24px;
 }
@@ -197,22 +230,25 @@ h3 {
   line-height: 1.15;
 }
 
+/* ===== 照片网格 ===== */
 .photo-grid {
   display: grid;
+  /* 分成 4 等列，每列最小 0、最大平分剩余空间 */
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 220px;
-  gap: 14px;
+  grid-auto-rows: 220px; /* 每行高度 220px */
+  gap: 14px;             /* 照片之间的间隙 */
 }
 
+/* 单张照片卡片（其实是 button 元素，方便点击） */
 .photo-card {
-  position: relative;
+  position: relative; /* 让里面绝对定位的说明文字以它为基准 */
   min-height: 220px;
   margin: 0;
   overflow: hidden;
   border: 0;
   border-radius: 8px;
-  background: #ddd;
-  cursor: zoom-in;
+  background: #ddd;     /* 图片加载前的占位灰 */
+  cursor: zoom-in;      /* 鼠标变成放大镜，提示可点击放大 */
   padding: 0;
   text-align: left;
 }
@@ -221,26 +257,29 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 360ms ease;
+  transition: transform 360ms ease; /* 变形时有 360 毫秒的平滑过渡 */
 }
 
+/* 鼠标悬停时图片轻微放大 */
 .photo-card:hover img {
   transform: scale(1.03);
 }
 
+/* 照片左下角的说明文字框 */
 .photo-caption {
-  position: absolute;
+  position: absolute; /* 绝对定位，浮在图片上 */
   right: 12px;
   bottom: 12px;
   left: 12px;
   padding: 10px 12px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.46);
+  background: rgba(0, 0, 0, 0.46); /* 半透明黑底，保证文字看得清 */
   color: #fff;
   font-size: 13px;
   font-weight: 750;
 }
 
+/* 说明里的小字（第二行的分类信息） */
 .photo-caption small {
   display: block;
   margin-top: 3px;
@@ -249,17 +288,20 @@ h3 {
   font-weight: 650;
 }
 
+/* 让某张照片横跨 2 列（变宽） */
 .span-wide {
   grid-column: span 2;
 }
 
+/* 让某张照片纵跨 2 行（变高） */
 .tall {
   grid-row: span 2;
 }
 
+/* ===== 关于我 ===== */
 .about {
   display: grid;
-  grid-template-columns: 0.3fr minmax(280px, 0.86fr);
+  grid-template-columns: 0.3fr minmax(280px, 0.86fr); /* 左窄右宽两列 */
   gap: clamp(22px, 5vw, 76px);
   padding: clamp(42px, 7vw, 86px) clamp(20px, 5vw, 72px);
   border-top: 1px solid var(--line);
@@ -273,6 +315,7 @@ h3 {
   max-width: 760px;
 }
 
+/* 选中 about 里最后一个 p（正文段落），放到第二列 */
 .about p:last-child {
   grid-column: 2;
   max-width: 760px;
@@ -282,6 +325,7 @@ h3 {
   line-height: 1.55;
 }
 
+/* ===== 页脚 ===== */
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -295,7 +339,9 @@ h3 {
   margin: 0;
 }
 
+/* ===== 灯箱（点击照片后的全屏放大查看） ===== */
 .lightbox {
+  /* 宽度取 1120px 和 视口宽-32px 中较小的，避免超出屏幕 */
   width: min(1120px, calc(100vw - 32px));
   max-height: calc(100vh - 32px);
   border: 0;
@@ -306,14 +352,15 @@ h3 {
   color: #fff;
 }
 
+/* ::backdrop 是 dialog 弹窗背后的遮罩层 */
 .lightbox::backdrop {
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(0, 0, 0, 0.78); /* 半透明黑，突出弹窗 */
 }
 
 .lightbox img {
   width: 100%;
   max-height: calc(100vh - 112px);
-  object-fit: contain;
+  object-fit: contain; /* 完整显示图片（不裁剪），可能留黑边 */
   background: #111;
 }
 
@@ -323,6 +370,7 @@ h3 {
   color: rgba(255, 255, 255, 0.78);
 }
 
+/* 灯箱右上角的关闭按钮 */
 .lightbox-close {
   position: absolute;
   top: 12px;
@@ -331,9 +379,9 @@ h3 {
   display: grid;
   width: 38px;
   height: 38px;
-  place-items: center;
+  place-items: center;   /* 让里面的 × 水平垂直都居中 */
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
+  border-radius: 999px;  /* 很大的圆角 = 正圆形按钮 */
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   cursor: pointer;
@@ -341,7 +389,10 @@ h3 {
   line-height: 1;
 }
 
+/* ===== 响应式：屏幕宽度 ≤ 860px（平板）时的调整 ===== */
+/* @media 媒体查询：满足条件时才应用里面的样式 */
 @media (max-width: 860px) {
+  /* hero 和 about 从两列改成单列（上下堆叠） */
   .hero,
   .about {
     grid-template-columns: 1fr;
@@ -353,14 +404,16 @@ h3 {
 
   .hero-image,
   .hero-image img {
-    min-height: 360px;
+    max-height: none;
   }
 
+  /* 照片网格从 4 列减为 2 列 */
   .photo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 190px;
   }
 
+  /* 版块标题改成块级（标题和说明上下排） */
   .section-heading {
     display: block;
   }
@@ -374,7 +427,9 @@ h3 {
   }
 }
 
+/* ===== 响应式：屏幕宽度 ≤ 560px（手机）时的调整 ===== */
 @media (max-width: 560px) {
+  /* 头部和页脚改成竖向排列 */
   .site-header,
   .site-footer {
     align-items: flex-start;
@@ -385,19 +440,22 @@ h3 {
     position: static;
   }
 
+  /* 导航链接占满整行并两端对齐 */
   .nav-links {
     width: 100%;
     justify-content: space-between;
   }
 
   h1 {
-    font-size: 58px;
+    font-size: 58px; /* 手机上固定一个较小的标题字号 */
   }
 
+  /* 照片网格变成单列 */
   .photo-grid {
     grid-template-columns: 1fr;
   }
 
+  /* 取消横跨/纵跨，手机上每张照片都占一格 */
   .span-wide,
   .tall {
     grid-column: auto;

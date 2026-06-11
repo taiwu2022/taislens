@@ -1,5 +1,8 @@
 .DS_Store
 **/.DS_Store
+assets/photos/photo_storage/
+assets/photos/publish/
+assets/photos/website/*.png
 dist/
 node_modules/
 .astro/
